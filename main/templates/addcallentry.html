@@ -1,0 +1,297 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<!--//Page Toolbar//-->
+<div class="toolbar p-4 bg-body">
+    <div class="position-relative container-fluid px-0">
+        <div class="row align-items-center position-relative">
+            <div class="col-md-5 col-9 mb-4 mb-lg-0">
+                <h3 class="mb-2">Add Call Entry</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item">Call Entry</li>
+                        <li class="breadcrumb-item active">Add Call Entry</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-md-7 col-3 text-md-end">
+                <div class="d-flex justify-content-md-end align-items-center">
+                    <a href="/CallEntry" class="btn btn-outline-success mb-2 me-2">Back</a>
+                </div>
+            </div>
+            <div class="col-12">
+                {% for message in messages %}
+                {% if message.tags == 'success' %}
+                <center>
+                    <h3 class="text-success">{{message}}</h3>
+                </center>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content p-4 pt-0 d-flex flex-column-fluid">
+    <div class="container-fluid px-0">
+        <div class="row">
+            <div class="col-12 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-1">Add Call Entry</h5>
+                        <p class="test-end">Financial Year : 2023-2024</p>
+                        <!-- <p class="mb-0 text-muted small">Create inline, horizontal, or complex
+                            grid-based layouts with your forms.</p> -->
+                    </div>
+                    <div class="card-body">
+                        <form class="row g-3">
+                            <div class="col-md-6">
+                                <label for="inputState" class="form-label">Party Name</label>
+                                <select id="inputState" class="form-select">
+                                    <option selected>Choose...</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="inputState" class="form-label">City</label>
+                                <select id="inputState" class="form-select">
+                                    <option selected>Choose...</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="inputState" class="form-label">Branch</label>
+                                <select id="selectType" class="form-select" onchange="select()">
+                                    <option selected>Choose...</option>
+                                    <option>...</option>
+                                    <option value="Call">Contact</option>
+                                    <option value="WorkOrder">OnField</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="form-label">Code</label>
+                                <input type="text" class="form-control" id="">
+                            </div>
+                            <div class="col-md-8">
+                                <label for="inputCity" class="form-label">Cluster</label>
+                                <input type="text" class="form-control" id="inputCity">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputAddress" class="form-label">Address</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputCity" class="form-label">Nos.</label>
+                                <div class="row">
+                                    <div class="col-6 mb-1">
+                                        <input type="text" class="form-control" id="inputCity">
+                                    </div>
+                                    <div class="col-6 mb-1">
+                                        <input type="text" class="form-control" id="inputCity">
+                                    </div>
+                                    <div class="col-6 mb-1">
+                                        <input type="text" class="form-control" id="inputCity">
+                                    </div>
+                                    <div class="col-6 mb-1">
+                                        <input type="text" class="form-control" id="inputCity">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="inputEmail4" class="form-label">Call Type</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" onchange="Call()" value="Call"
+                                        id="flexCheckChecked2" name="Type" checked>
+                                    <label class="form-check-label">
+                                        Call
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" onchange="WorkOrder()"
+                                        value="WorkOrder" id="flexCheckChecked" name="Type">
+                                    <label class="form-check-label" for="">
+                                        WorkOrder
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6" id="Call">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="singleDatePicker" class="form-label">Call Date</label>
+                                        <input id="singleDatePicker" class="form-control" type="date">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="singleDatePicker" class="form-label">Call Close Date</label>
+                                        <input id="singleDatePicker" class="form-control" type="date">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6" id="WorkOrder" style="display: none;">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="singleDatePicker" class="form-label">WorkOrder Date</label>
+                                        <input id="singleDatePicker" class="form-control" type="date">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="singleDatePicker" class="form-label">WorkOrder Close Date</label>
+                                        <input id="singleDatePicker" class="form-control" type="date">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="" class="form-label">Code No.</label>
+                                <input type="number" class="form-control" id="">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="inputState" class="form-label">Cost Code</label>
+                                <select id="inputState" class="form-select">
+                                    <option selected>Choose...</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="form-label">Contact No</label>
+                                <input type="number" class="form-control" id="">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="form-label">Contact Person</label>
+                                <input type="number" class="form-control" id="">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputEmail4" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="inputEmail4">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputEmail4" class="form-label">CC Name</label>
+                                <input type="text" class="form-control" id="inputCity">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputAddress" class="form-label">Problem</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="inputCity" class="form-label">Challan No.</label>
+                                        <input type="number" class="form-control" id="inputCity">
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="singleDatePicker" class="form-label">Challan /Work Start
+                                            Date</label>
+                                        <input id="singleDatePicker" class="form-control" type="date">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="inputCity" class="form-label">RC Code</label>
+                                        <input type="number" class="form-control" id="inputCity">
+                                    </div>
+                                    <div class="col-md-12 mt-2">
+                                        <label for="inputAddress" class="form-label">Description</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1"
+                                            rows="2"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row justify-content-center">
+                                    <div class="col-6 ">
+                                        <label for="inputCity" class="form-label">Quantity</label>
+                                        <input type="number" class="form-control" id="inputCity">
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="inputCity" class="form-label">Rate</label>
+                                        <input type="number" class="form-control" id="inputCity">
+                                    </div>
+                                    <div class="col-6 mt-2">
+                                        <label for="inputCity" class="form-label">Labour</label>
+                                        <input type="number" class="form-control" id="inputCity">
+                                    </div>
+                                    <div class="col-6 mt-2">
+                                        <label for="inputCity" class="form-label">Amt</label>
+                                        <input type="number" class="form-control" id="inputCity">
+                                    </div>
+                                    <button type="submit" class="col-6 mt-2 btn btn-success">Save</button>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="card" id=''>
+                                    <div class="table-responsive">
+                                        <table id="" class="table mt-0 table-striped table-card table-nowrap">
+                                            <thead class="text-uppercase small text-muted">
+                                                <tr>
+                                                    <th>RC Code</th>
+                                                    <th>RC Description</th>
+                                                    <th>Quantity</th>
+                                                    <th>Rate</th>
+                                                    <th>Amount</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="inputState" class="form-label">Call Allocated To</label>
+                                <select id="inputState" class="form-select">
+                                    <option selected>Choose...</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="inputCity" class="form-label">Estimate Recd.</label>
+                                <input type="number" class="form-control" id="inputCity">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="inputState" class="form-label">Work Engaged</label>
+                                <select id="inputState" class="form-select">
+                                    <option selected>Choose...</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputAddress" class="form-label">Remark</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <p class="text-danger">Total Amount : 00.00</p>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row justify-content-center">
+                                    <button type="submit" class="col-5 btn btn-success m-1">Save</button>
+                                    <button class="col-5 btn btn-warning m-1">Clase</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--//Page content End//-->
+
+
+{% endblock content %}
+
+{% block script %}
+<script>
+    function Call() {
+        let get = document.getElementById('WorkOrder');
+        get.style.display = "none";
+        let get2 = document.getElementById('Call');
+        get2.style.display = "block";
+    }
+    function WorkOrder() {
+        let get = document.getElementById('WorkOrder');
+        get.style.display = "block";
+        let get2 = document.getElementById('Call');
+        get2.style.display = "none";
+    }
+</script>
+{% endblock script %}
