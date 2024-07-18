@@ -1026,7 +1026,7 @@ def export_to_excel(request,id):
     ws.merge_cells('A2:T2')
     ws['A2'] = f'Bill Month :- {dt.BillMonth} {dt.BillYear}'
     ws.merge_cells('A3:T3')
-    ws['A3'] = f'Bill No : GA20242{int(dt.InvoiceNo)+5000} Dated : {dt.InvoiceData.strftime('%d-%m-%Y')}'
+    ws['A3'] = f'Bill No : GA20242{int(dt.InvoiceNo)+5000} Dated :'+ dt.InvoiceData.strftime('%d-%m-%Y')
     # Add headers
     headers = ['Sr.No.',"Description of Goods","Work start- date","Work end-date","Challan No.","Challan date","call log.no.","call log. Date","RC Code","HSN no.","Location Code","UOM",'Qty.','Rate','Amount',"SGST Rate","SGST Amount",'CGST Rate','CGST Amount','Total Amount payable']
     ws.append(headers)
