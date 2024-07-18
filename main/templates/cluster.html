@@ -35,7 +35,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card" id=''>
-                    <div class="table-responsive">
+                    <div class="table-responsive p-2">
                         <table id="exampletab" class="table mt-0 table-striped table-card table-nowrap">
                             <thead class="text-uppercase small text-muted">
                                 <tr>
@@ -44,6 +44,7 @@
                                     <th>Amount</th>
                                     <th>ATM</th>
                                     <th>Branch</th>
+                                    <th>HubLocation</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -55,7 +56,8 @@
                                     <td>{{i.Amount}}</td>
                                     <td>{{i.ATM}}</td>
                                     <td>{{i.Branch}}</td>
-                                    <td><a class="btn btn-success mr-3" href="/EditCluster/{{i.id}}">Edit</a><a href="DeleteCluster/{{i.id}}" style="margin-left: 5px;" class="btn btn-danger">Delete</a></td>
+                                    <td>{{i.HubLocation}}</td>
+                                    <td><a class="btn btn-success mr-3" href="/EditCluster/{{i.id}}"><i class="bi bi-pen"></i></a><a href="DeleteCluster/{{i.id}}" style="margin-left: 5px;" class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
@@ -90,14 +92,14 @@
                                             <label class="col-md-4 text-md-end" for="BlogDate"><b>Name</b></label>
                                             <div class="col-md-8 col-lg-6">
                                                 <div>
-                                                    <input type="text" class="form-control" name="Name">
+                                                    <input type="text" class="form-control" name="Name" required>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row mb-4">
                                             <label class="col-md-4 text-md-end" for="BlogImage"><b>Amount</b></label>
                                             <div class="col-md-8 col-lg-6">
-                                                <input type="number" class="form-control" name="Amount">
+                                                <input type="number" class="form-control" name="Amount" required>
                                             </div>
                                         </div>
                                         <div class="row mb-4 justify-content-center">
@@ -105,13 +107,19 @@
                                                 <label class="form-check-label" for="">
                                                     <b>ATM</b>
                                                 </label>
-                                                <input class="form-check-input" type="checkbox" name="ATM" id="">
+                                                <input class="form-check-input" type="radio" name="ABH" value="ATM" id="" checked>
                                             </div>
                                             <div class="form-check col-md-3 col-3">
                                                 <label class="form-check-label" for="">
                                                     <b>Branch</b>
                                                 </label>
-                                                <input class="form-check-input" type="checkbox" name="Branch" id="">
+                                                <input class="form-check-input" type="radio" name="ABH" value="Branch" id="">
+                                            </div>
+                                            <div class="form-check col-md-4 col-3">
+                                                <label class="form-check-label" for="">
+                                                    <b>Hub Location</b>
+                                                </label>
+                                                <input class="form-check-input" type="radio" name="ABH" value="HubLocation" id="">
                                             </div>
                                         </div>
                                         <div class="modal-footer">

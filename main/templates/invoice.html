@@ -36,28 +36,43 @@
         <div class="row">
             <div class="col-12">
                 <div class="card" id=''>
-                    <div class="table-responsive">
-                        <table id="exampletab" class="table mt-0 table-striped table-card table-nowrap">
+                    <div class="table-responsive p-2">
+                        <table id="exampletab" class="table mt-0 table-striped table-card table-nowrap w-100">
                             <thead class="text-uppercase small text-muted">
                                 <tr>
                                     <th>No</th>
-                                    <th>Code No</th>
-                                    <th>Description</th>
+                                    <th>Date</th>
+                                    <th>Invoice No</th>
+                                    <th>Party Name</th>
+                                    <th>From Date</th>
+                                    <th>To Date</th>
+                                    <th>Call Type</th>
+                                    <th>Amount</th>
+                                    <th>GST Amount</th>
+                                    <th>Total Amount</th>
+                                    <th>Bill PDF</th>
+                                    <th>Annexure</th>
                                     <th>HSN Code</th>
-                                    <th>Unit</th>
-                                    <th>Invoice</th>
-                                    <th>Remarks</th>
-                                    <th>GST</th>
-                                    <th>IGST</th>
+                                    <th>Soft Copy</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for i in data %}
+                                {% for i in dt %}
                                 <tr>
-                                    <td>{{i.datepurchas}}</td>
-                                    <td>{{i.datepurchas}}</td>
-                                    <td>{{i.seller_name}}</td>
-                                    <td>{{i.product_name}}</td>
+                                    <td>{{forloop.counter}}</td>
+                                    <td>{{i.ndate}}</td>
+                                    <td><p id="">{{i.InvoiceNo}}</p></td>
+                                    <td>{{i.PartyName}}</td>
+                                    <td>{% if i.FromDate %}{{i.FromDate}}{% else %}{% endif %}</td>
+                                    <td>{% if i.ToDate %}{{i.ToDate}}{% else %}{% endif %}</td>
+                                    <td>{{i.Type}}</td>
+                                    <td>{{i.Amount}}</td>
+                                    <td>{{i.GSTAmount}}</td>
+                                    <td>{{i.TotalAmount}}</td>
+                                    <td><a href="TaxInvoice/{{i.id}}" class="btn btn-success btn-sm"><i class="bi bi-printer fs-5"></i></a></td>
+                                    <td><a href="ETOE/{{i.id}}" class="btn btn-primary btn-sm"><i class="bi bi-printer fs-5"></i></a></td>
+                                    <td><a href="HSN/{{i.id}}" class="btn btn-info btn-sm"><i class="bi bi-printer fs-5"></i></a></td>
+                                    <td><a href="SoftCopy/{{i.id}}" class="btn btn-warning btn-sm"><i class="bi bi-printer fs-5"></i></a></td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
@@ -70,5 +85,4 @@
 </div>
 
 <!--//Page content End//-->
-
 {% endblock content %}

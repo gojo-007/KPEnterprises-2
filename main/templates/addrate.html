@@ -6,12 +6,12 @@
     <div class="position-relative container-fluid px-0">
         <div class="row align-items-center position-relative">
             <div class="col-md-5 col-9 mb-1 mb-lg-0">
-                <h3 class="mb-2">Add Rate</h3>
+                <h3 class="mb-2">Add RC Code</h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item">Rate</li>
-                        <li class="breadcrumb-item active">Add Rate</li>
+                        <li class="breadcrumb-item">RC Code</li>
+                        <li class="breadcrumb-item active">Add RC Code</li>
                     </ol>
                 </nav>
             </div>
@@ -34,34 +34,34 @@
 </div>
 <div class="content p-4 pt-0 d-flex flex-column-fluid">
     <div class="container-fluid px-0">
-        <div class="row justify-content-center">
+        <div class="row justify-content-start">
             <div class="col-md-9 col-12 mb-1">
                 <div class="card h-100">
                     <div class="card-header">
-                        <h5 class="mb-1">Add Rate</h5>
+                        <h5 class="mb-1">Add RC Code</h5>
                     </div>
                     <div class="card-body">
                         <form class="row g-3" method="post">
                             {% csrf_token %}
                             <div class="col-md-12">
-                                <label for="" class="form-label"><b>Code No</b></label>
-                                <input type="text" class="form-control" name="CodeNo">
+                                <label for="" class="form-label"><b>RC Code No</b></label>
+                                <input type="text" class="form-control" name="CodeNo" required>
                             </div>
                             <div class="col-md-12">
                                 <label for="" class="form-label"><b>Description</b></label>
-                                <textarea class="form-control" id="" rows="2" name="Description"></textarea>
+                                <textarea class="form-control" id="" rows="2" name="Description" required></textarea>
                             </div>
                             <div class="col-md-4">
                                 <label for="" class="form-label"><b>HSN Code</b></label>
-                                <input type="number" class="form-control" name="HSNCode">
+                                <input type="number" class="form-control" name="HSNCode" required>
                             </div>
                             <div class="col-md-4">
                                 <label for="" class="form-label"><b>Unit</b></label>
-                                <input type="text" class="form-control" name="Unit">
+                                <input type="text" class="form-control" name="Unit" required>
                             </div>
                             <div class="col-md-4">
                                 <label for="" class="form-label"><b>Rate</b></label>
-                                <input type="number" class="form-control" name="Rate">
+                                <input type="number" class="form-control" name="Rate" required>
                             </div>
                             <div class="col-md-12">
                                 <label for="" class="form-label"><b>Remarks</b></label>
@@ -69,7 +69,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="" class="form-label"><b>GST</b></label>
-                                <select id="" class="form-select" name="GSTName">
+                                <select id="" class="form-select" name="GSTName" required>
                                     <option selected>Choose...</option>
                                     {% for i in data %}
                                     <option value="{{i.GSTName}}">{{i.GSTName}}</option>

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'main'
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -74,31 +75,35 @@ WSGI_APPLICATION = 'ERP.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        "NAME": os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         "NAME": os.path.join(BASE_DIR, 'db.sqlite3'),
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'KPEnterprises',
+#         'USER': 'KPEnterprises',
+#         'PASSWORD': 'wYXe@NH=c0fP',
+#         'HOST':'localhost',
+#         'PORT':'3306',
 #     }
 # }
 
 # Render postgresSQL database
 import dj_database_url
 
-# DATABASES = {
-#     "default": dj_database_url.parse('postgres://kpenterprises_user:tkv2FKD3SPBm5HSNVQ22QjubvtTVL4yh@dpg-co5phtu3e1ms73b9nv4g-a.oregon-postgres.render.com/kpenterprises') 
-# }
-
-RENDER_EXTERNAL_HOSTNAME = "postgres://kpenterprises_user:tkv2FKD3SPBm5HSNVQ22QjubvtTVL4yh@dpg-co5phtu3e1ms73b9nv4g-a.oregon-postgres.render.com/kpenterprises"
+RENDER_EXTERNAL_HOSTNAME = "postgresql://kpenterprises_np1f_user:6u1PA0sFw8Qf8dtbupwOXgpPclwAVFmy@dpg-cqcd75uehbks738dhei0-a.oregon-postgres.render.com/kpenterprises_np1f"
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
-
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
-        default='postgres://kpenterprises_user:tkv2FKD3SPBm5HSNVQ22QjubvtTVL4yh@dpg-co5phtu3e1ms73b9nv4g-a.oregon-postgres.render.com/kpenterprises',
+        default='postgresql://kpenterprises_np1f_user:6u1PA0sFw8Qf8dtbupwOXgpPclwAVFmy@dpg-cqcd75uehbks738dhei0-a.oregon-postgres.render.com/kpenterprises_np1f',
         conn_max_age=600
     )
 }

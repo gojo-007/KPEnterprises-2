@@ -34,7 +34,7 @@
 </div>
 <div class="content p-4 pt-0 d-flex flex-column-fluid">
     <div class="container-fluid px-0">
-        <div class="row justify-content-center">
+        <div class="row justify-content-start">
             <div class="col-md-9 col-12 mb-4">
                 <div class="card h-100">
                     <div class="card-header">
@@ -58,7 +58,7 @@
                                             <select id="inputState" class="form-select" name="Cluster">
                                                 <option selected>Choose...</option>
                                                 {% for i in Clr %}
-                                                <option value="{{i.Name}}" {% if data.Cluster == i.Name %} selected {% endif %}>{{i.Name}}-{{i.Amount}}</option>
+                                                <option value="{{i.id}}" {% if data.Cluster == i.Name %} selected {% endif %}>{{i.Name}}-{{i.Amount}}</option>
                                                 {% endfor %}
                                             </select>
                                         </div>

@@ -1,7 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,6 +41,9 @@
       background: #0057ff;
       color: #fff;
 
+    }
+    .clr{
+      color: #669aff !important;
     }
   </style>
 
@@ -89,7 +91,7 @@
                   </span> -->
                 <span class="sidebar-text">
                   <!--Sidebar-text-->
-                  <img src="{% static 'assets\media\logo\logo.png' %}" class="img-fluid "
+                  <img src="{% static 'assets\media\logo\Logo.png' %}" class="img-fluid "
                     style="width: 130px; margin-left: 50px;" alt="">
                   <!-- <span class="sidebar-text text-truncate fs-4 text-uppercase fw-bolder mt-2">
                       KP Enterprises
@@ -100,7 +102,7 @@
             </a>
           </div>
           <!--Aside-Menu-->
-          <div class="aside-menu pe-2 my-auto flex-column-fluid mt-4">
+          <div class="aside-menu pe-2 my-auto flex-column-fluid mt-4" >
             <nav class="flex-grow-1 h-100" id="page-navbar">
               <!--:Sidebar nav-->
               <ul class="nav flex-column collapse-group collapse d-flex pt-4">
@@ -112,19 +114,6 @@
                     <span class="sidebar-text">Dashboard</span>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a href="#Entery" data-bs-toggle="collapse" class="nav-link d-flex align-items-center text-truncate"
-                    aria-expanded="false">
-                    <span class="sidebar-icon">
-                      <i class="bi bi-clipboard-data fs-5"></i>
-                    </span>
-                    <span class="sidebar-text">Entery</span>
-                  </a>
-                  <ul data-bs-target="#Enetry" id="Entery" class="sidebar-dropdown list-unstyled collapse">
-                    <li class="sidebar-item"><a class="sidebar-link" href="/CallEntry">Call Entry</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="/Invoice">Invoice</a></li>
-                  </ul>
-                </li>
                 <li class="nav-item ">
                   <a href="#Master" data-bs-toggle="collapse" data-tabname="Master"
                     class="nav-link d-flex align-items-center text-truncate" aria-expanded="false">
@@ -135,104 +124,44 @@
                   </a>
                   <ul data-bs-target="#Master" id="Master" data-tabname="Master2"
                     class="sidebar-dropdown list-unstyled collapse ">
-                    <li class="sidebar-item"><a class="sidebar-link" href="/Party">Party</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="/Cluster">Cluster</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="/Rate">Rate</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="/GST">GST</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="/CostCode">Cost Code </a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="/Labour">Labour</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" data-tabname="Party" href="/Party">Party</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" data-tabname="Cluster" href="/Cluster">Cluster</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" data-tabname="Rate" href="/RCCode">RC Code</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" data-tabname="GST" href="/GST">GST</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" data-tabname="CostCode" href="/CostCode">Cost Code </a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" data-tabname="Labour" href="/Labour">Labour</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" data-tabname="PartyName" href="/PartyName">Party Name</a></li>
                   </ul>
                 </li>
-                <!-- <li class="nav-item">
-                    <a href="/CallEntry"
-                      class="nav-link d-flex align-items-center text-truncate ">
-                      <span class="sidebar-icon">
-                        <i class="bi bi-dropbox fs-5"></i>
-                      </span>
-                      <span class="sidebar-text">Call Entry</span>
-                    </a>
-                  </li> -->
-                <!-- <li class="nav-item">
-                    <a href="/Invoice"
-                      class="nav-link d-flex align-items-center text-truncate ">
-                      <span class="sidebar-icon">
-                        <i class="bi bi-clipboard-data fs-5"></i>
-                      </span>
-                      <span class="sidebar-text">Invoice</span>
-                    </a>
-                  </li> -->
-                <!-- <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center text-truncate " href="/Cluster">
-                      <span class="sidebar-icon">
-                        <i class="bi bi-magic fs-5"></i>
-                      </span>
-                      <span class="sidebar-text">Cluster</span>
-                    </a>
-                  </li> -->
-                <!-- <li class="nav-item">
-                    <a
-                      class="nav-link d-flex align-items-center text-truncate " href="/Party">
-                      <span class="sidebar-icon">
-                        <i class="bi bi-people fs-5"></i>
-                      </span>
-
-                      <span class="sidebar-text">Party</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link d-flex align-items-center text-truncate " href="/Rate">
-                      <span class="sidebar-icon">
-                        <i class="bi bi-currency-rupee fs-5"></i>
-                      </span>
-                      <span class="sidebar-text">Rate</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="/GST"
-                      class="nav-link d-flex align-items-center text-truncate ">
-                      <span class="sidebar-icon">
-                        <i class="bi bi-pin-map-fill fs-5"></i>
-                      </span>
-                      <span class="sidebar-text">GST</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="/CostCode"
-                      class="nav-link d-flex align-items-center text-truncate ">
-                      <span class="sidebar-icon">
-                        <i class="bi bi-clipboard-data fs-5"></i>
-                      </span>
-                      <span class="sidebar-text">Cost Code </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="/Labour"
-                      class="nav-link d-flex align-items-center text-truncate ">
-                      <span class="sidebar-icon">
-                        <i class="bi bi-layers fs-5"></i>
-                      </span>
-                      <span class="sidebar-text">Labour</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="/Branch"
-                      class="nav-link d-flex align-items-center text-truncate ">
-                      <span class="sidebar-icon">
-                        <i class="bi bi-location fs-5"></i>
-                      </span>
-                      <span class="sidebar-text">Branch</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="/"
-                      class="nav-link d-flex align-items-center text-truncate ">
-                      <span class="sidebar-icon">
-                        <i class="bi bi-calendar fs-5"></i>
-                      </span>
-                      <span class="sidebar-text"></span>
-                    </a>
-                  </li> -->
+                <li class="nav-item">
+                  <a href="#Entery" data-bs-toggle="collapse" data-tabname="Entery" class="nav-link d-flex align-items-center text-truncate"
+                    aria-expanded="false">
+                    <span class="sidebar-icon">
+                      <i class="bi bi-dropbox fs-5"></i>
+                    </span>
+                    <span class="sidebar-text">Entery</span>
+                  </a>
+                  <ul data-bs-target="#Enetry" id="Entery" class="sidebar-dropdown list-unstyled collapse">
+                    <li class="sidebar-item"><a class="sidebar-link" data-tabname="CallEntry" href="/CallEntry">Call Entry</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" data-tabname="PendingCall" href="/PendingCall">Pending Call</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" data-tabname="PendingWorkOrder" href="/PendingWorkOrder">Pending WorkOrder</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" data-tabname="CompleteCall" href="/CompleteCall">Complete Call</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" data-tabname="Invoice" href="/Invoice">Invoice</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" data-tabname="Quotation" href="/Quotation">Quotation</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a href="#Report" data-bs-toggle="collapse" data-tabname="Report" class="nav-link d-flex align-items-center text-truncate"
+                    aria-expanded="false">
+                    <span class="sidebar-icon">
+                      <i class="bi bi-clipboard-data fs-5"></i>
+                    </span>
+                    <span class="sidebar-text">Report</span>
+                  </a>
+                  <ul data-bs-target="#Report" id="Report" class="sidebar-dropdown list-unstyled collapse">
+                    <li class="sidebar-item"><a class="sidebar-link" data-tabname="ClusterReport" href="/ClusterReport">Cluster Report</a></li>
+                  </ul>
+                </li>
               </ul>
             </nav>
           </div>
@@ -257,7 +186,7 @@
             <div class="d-flex align-items-center flex-no-wrap text-truncate">
               <!--Sidebar-icon-->
               <span class=" ">
-                <img src="{% static 'assets\media\logo\logo.png' %}" class="img-fluid " style="width: 80px;" alt="">
+                <img src="{% static 'assets\media\logo\Logo.png' %}" class="img-fluid " style="width: 80px;" alt="">
               </span>
             </div>
           </a>
@@ -395,7 +324,7 @@
 
 
   <!--////////////Theme Core scripts Start/////////////////-->
-
+  <script src="{% static 'assets/js/jquery-3.7.1.js' %}"></script>
   <script src="{% static 'assets/js/theme.bundle.js' %}"></script>
   <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
@@ -405,28 +334,38 @@
 
   {% endblock script %}
   <!--Datatables-->
-  <script>
-    $(document).ready(function () {
-      var table = $('#exampletab').DataTable({
-        lengthChange: false,
-        buttons: ['copy', 'excel', 'pdf']
-      });
 
-      table.buttons().container()
-        .appendTo(' .col-sm-6:eq(0)');
-    });
-  </script>
   <script>
 
     let PathNameObj = {
       "": 'Dashboard',
+      "CallEntry": 'Entery',
+      "AddCallEntry": 'Entery',
+      "PendingCall": 'Entery',
+      "PendingWorkOrder": 'Entery',
+      "CompleteCall": 'Entery',
+      "Quotation": 'Entery',
+      "Invoice": 'Entery',
+      "AddInvoice": 'Entery',
       "Party": 'Master',
-      "AddTemple": 'Templelist',
-      "editTemple": 'Templelist',
-      "AddGallery": 'Gallerylist',
-      "editGallery": 'Gallerylist',
-      "AddYoutube": 'Youtubelist',
-      "editYoutube": 'Youtubelist',
+      "AddParty": 'Master',
+      "EditParty": 'Master',
+      "Cluster": 'Master',
+      "EditCluster": 'Master',
+      "RCCode": 'Master',
+      "AddRate": 'Master',
+      "EditRate": 'Master',
+      "GST": 'Master',
+      "EditGST": 'Master',
+      "Labour": 'Master',
+      "AddLabour": 'Master',
+      "EditLabour": 'Master',
+      "CostCode": 'Master',
+      "EditCostCode": 'Master',
+      "PartyName": 'Master',
+      "EditPartyName": 'Master',
+      "ClusterReport": 'Report',
+
     }
 
     let patName;
@@ -438,14 +377,30 @@
     document.querySelector(`[data-tabname='${patName}']`)?.classList.add("active")
 
     let PathNameObj2 = {
-      "": 'Dashboard',
-      "Party": 'Master2',
-      "AddTemple": 'Templelist',
-      "editTemple": 'Templelist',
-      "AddGallery": 'Gallerylist',
-      "editGallery": 'Gallerylist',
-      "AddYoutube": 'Youtubelist',
-      "editYoutube": 'Youtubelist',
+      "CallEntry": 'CallEntry',
+      "PendingCall": 'PendingCall',
+      "PendingWorkOrder": 'PendingWorkOrder',
+      "AddCallEntry": 'CallEntry',
+      "Invoice": 'Invoice',
+      "AddInvoice": 'Invoice',
+      "Party": 'Party',
+      "AddParty": 'Party',
+      "EditParty": 'Party',
+      "Cluster": 'Cluster',
+      "EditCluster": 'Cluster',
+      "RCCode": 'Rate',
+      "AddRate": 'Rate',
+      "EditRate": 'Rate',
+      "GST": 'GST',
+      "EditGST": 'GST',
+      "Labour": 'Labour',
+      "AddLabour": 'Labour',
+      "EditLabour": 'Labour',
+      "CostCode": 'CostCode',
+      "EditCostCode": 'CostCode',
+      "PartyName": 'PartyName',
+      "EditPartyName": 'PartyName',
+
     }
 
     let patName2;
@@ -454,20 +409,11 @@
     } else {
       patName2 = location.pathname.slice(1)
     }
-    document.querySelector(`[data-tabname='${patName2}']`)?.classList.add("show")
+    document.querySelector(`[data-tabname='${patName2}']`)?.classList.add("clr")
   </script>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-  <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js"></script>
+  
+
   <!--Charts-->
   <script src="{% static 'assets/vendor/apexcharts.min.js' %}"></script>
   <!--Dashboard duration calendar-->
@@ -475,16 +421,29 @@
   <script src="{% static 'assets/vendor/daterangepicker.js' %}"></script>
 
   <!--Datatables-->
-  <script src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.11.0/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.1/js/dataTables.buttons.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.0/js/dataTables.responsive.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.0/js/responsive.dataTables.js"></script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       // Datatables Responsive
-      $("#example").DataTable({
+      $("#exampletab ").DataTable({
         "filter": true,
         "length": false,
         'lengthChange': true,
+        'responsive': true,
         "buttons": ['copy']
       });
     });

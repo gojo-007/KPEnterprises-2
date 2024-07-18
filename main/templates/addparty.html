@@ -34,7 +34,7 @@
 </div>
 <div class="content p-4 pt-0 d-flex flex-column-fluid">
     <div class="container-fluid px-0">
-        <div class="row justify-content-center">
+        <div class="row justify-content-start">
             <div class="col-md-9 col-12 mb-4">
                 <div class="card h-100">
                     <div class="card-header">
@@ -45,26 +45,31 @@
                             {% csrf_token %}
                             <div class="col-md-3">
                                 <label for="" class="form-label"><b>Code</b></label>
-                                <input type="number" class="form-control" name="Code">
+                                <input type="number" class="form-control" name="Code" required>
                             </div>
                             <div class="col-md-9">
                                 <label for="" class="form-label"><b>Party Name</b></label>
-                                <input type="text" class="form-control" name="PartyName">
+                                <select id="inputState" class="form-select" name="PartyName" required>
+                                    <option selected>Choose...</option>
+                                    {% for i in PN %}
+                                    <option value="{{i.Name}}">{{i.Name}}</option>
+                                    {% endfor %}
+                                </select>
                             </div>
                             <div class="col-md-12">
                                 <div class="row">
                                         <div class="col-6">
                                             <label for="" class="form-label"><b>Cluster</b></label>
-                                            <select id="inputState" class="form-select" name="Cluster">
+                                            <select id="inputState" class="form-select" name="Cluster" required>
                                                 <option selected>Choose...</option>
                                                 {% for i in data %}
-                                                <option value="{{i.Name}}">{{i.Name}}-{{i.Amount}}</option>
+                                                <option value="{{i.id}}">{{i.Name}}-{{i.Amount}}--{{i.Type}}</option>
                                                 {% endfor %}
                                             </select>
                                         </div>
                                         <div class="col-6">
                                             <label for="" class="form-label"><b>City</b></label>
-                                            <select id="inputState" class="form-select" name="City">
+                                            <select id="inputState" class="form-select" name="City" required>
                                                 <option selected>Choose...</option>
                                                 {% include "city.html" %}
                                             </select>
@@ -73,15 +78,15 @@
                             </div>
                             <div class="col-md-12">
                                 <label for="" class="form-label"><b>Branch</b></label>
-                                <input type="text" class="form-control" name="Branch">
+                                <input type="text" class="form-control" name="Branch" required>
                             </div>
                             <div class="col-md-12">
                                 <label for="" class="form-label"><b>Address</b></label>
-                                <textarea class="form-control" rows="2" name="Address"></textarea>
+                                <textarea class="form-control" rows="2" name="Address" required></textarea>
                             </div>
                             <div class="col-md-12 ">
                                 <label for="" class="form-label"><b>GST No.</b></label>
-                                <input type="text" class="form-control" name="GSTNo">
+                                <input type="text" class="form-control" name="GSTNo" required>
                             </div>
                             <div class="col-md-12">
                                 <label for="" class="form-label">Nos.</label>

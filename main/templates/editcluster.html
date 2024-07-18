@@ -34,7 +34,7 @@
 </div>
 <div class="content p-4 pt-0 d-flex flex-column-fluid">
     <div class="container-fluid px-0">
-        <div class="row justify-content-center">
+        <div class="row justify-content-start">
             <div class="col-md-9 col-12 mb-4">
                 <div class="card h-100">
                     <div class="card-header">
@@ -53,11 +53,15 @@
                             </div>
                             <div class="col-md-12">
                                 <label for="" class="form-label"><b>ATM</b></label>
-                                <input class="form-check-input" type="checkbox" name="ATM" {% if data.ATM == 'True' %}checked{% endif %} id="">
+                                <input class="form-check-input" type="radio" name="ABH" value="ATM" {% if data.ATM == 'True' %}checked{% endif %} id="">
                             </div>
                             <div class="col-md-12">
                                 <label for="" class="form-label"><b>Branch</b></label>
-                                <input class="form-check-input" type="checkbox" name="Branch" {% if data.Branch == 'True' %}checked{% endif %} id="">
+                                <input class="form-check-input" type="radio" name="ABH" value="Branch" {% if data.Branch == 'True' %}checked{% endif %} id="">
+                            </div>
+                            <div class="col-md-12">
+                                <label for="" class="form-label"><b>Hub Location</b></label>
+                                <input class="form-check-input" type="radio" name="ABH" value="HubLocation" {% if data.HubLocation == 'True' %}checked{% endif %} id="">
                             </div>
                             <div class="col-md-12">
                                 <div class="row justify-content-center">

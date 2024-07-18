@@ -382,7 +382,7 @@ a {
 }
 
 a:hover {
-    --bs-link-color-rgb: var(--bs-link-hover-color-rgb)
+    --bs-link-color-rgb: #000;
 }
 
 a:not([href]):not([class]),
